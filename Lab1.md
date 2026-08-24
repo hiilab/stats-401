@@ -1145,6 +1145,9 @@ Change the lab number for each folder.
 
 GitHub Pages allows you to publish static HTML, CSS, and JavaScript websites directly from a GitHub repository.
 
+<mark>For more detailed information, please refer to https://docs.github.com/en/pages/quickstart</mark>
+
+
 ## 7.1 Create a GitHub Repository
 
 Log in to GitHub.
