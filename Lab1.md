@@ -156,6 +156,8 @@ Later, D3 can locate this element and insert a visualization inside it.
 
 CSS controls the **appearance** of a webpage.
 
+<mark>For more detailed information, please refer to https://www.w3schools.com/css/css_syntax.asp</mark>
+
 Create:
 
 ```text
@@ -269,6 +271,8 @@ Hello STATS 401!
 
 ## 1.5 JavaScript Variables
 
+<mark>For more detailed information, please refer to https://www.w3schools.com/js/js_syntax.asp</mark>
+
 Try adding:
 
 ```javascript
@@ -318,6 +322,8 @@ console.log(students);
 D3 stands for **Data-Driven Documents**.
 
 D3 is a JavaScript library designed for creating data-driven web visualizations.
+
+<mark>For more detailed information about D3, please refer to https://d3js.org/what-is-d3</mark>
 
 It provides tools for:
 
