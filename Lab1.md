@@ -769,6 +769,8 @@ d = 30, i = 2
 
 This is your first example of **data-driven graphics**.
 
+<img width="1086" height="386" alt="image" src="https://github.com/user-attachments/assets/69a8ef1e-610c-45ea-8a1c-2498980f0c03" />
+
 ---
 
 # Task 5 — Loading CSV and JSON Data
