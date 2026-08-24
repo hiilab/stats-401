@@ -1264,11 +1264,9 @@ Public website
 
 ## Objective
 
-Create your first data-driven visualization using D3 and publish it as **Lab 1** on your STATS 401 GitHub Pages website.
+Create your first data-driven visualization using **D3.js** and publish it as **Lab 1** on your STATS 401 GitHub Pages website.
 
-The purpose of this assignment is not to create a sophisticated visualization.
-
-Instead, demonstrate that you understand the complete workflow:
+The goal is not to build a complex visualization. Instead, demonstrate that you understand the basic workflow:
 
 ```text
 HTML
@@ -1279,26 +1277,18 @@ JavaScript
  ↓
 D3
  ↓
-External data
+External Data
  ↓
-SVG
+SVG Visualization
  ↓
 GitHub
  ↓
 GitHub Pages
 ```
 
-## Assignment Dataset
+## Dataset
 
-Create:
-
-```text
-data/students.csv
-```
-
-Use at least **8 observations**.
-
-For example:
+Create `data/students.csv` containing:
 
 ```csv
 name,score
@@ -1312,567 +1302,190 @@ Grace,95
 Henry,82
 ```
 
-You may use this example dataset or create your own small dataset.
+## Visualization Task
 
-Possible alternatives include:
+Create a **Student Score Bar Chart** using D3.js.
 
-- movie ratings;
-- game scores;
-- course enrollment;
-- city populations;
-- book ratings;
-- sports statistics;
-- personal activity data;
-- music listening counts.
+- Each student should be represented by one bar.
+- The **height of the bar** should represent the student's score.
+- You **do not need to create x- or y-axes**.
+- Under each bar, display the student's **name** and **score**.
 
-For Lab 1, keep the dataset small.
+Conceptually:
 
-## Assignment Requirements
+```text
+                █
+        █       █
+█       █   █   █
+█   █   █   █   █       █
+█   █   █   █   █   █   █
+█   █   █   █   █   █   █
 
-Your submission must satisfy the following requirements:
+85  72  91  66  88  74  95  82
+Alice Bob Carol David Emma Frank Grace Henry
+```
 
-1. Your website must contain `index.html`, `css/`, `js/`, `data/`, and `lab1/` through `lab10/`.
-2. Your main webpage must provide navigation to all 10 labs.
-3. The visualization must load data from an external `.csv` or `.json` file.
-4. You must use D3 to create the visualization.
-5. The visualization must use SVG.
-6. Graphical marks must be created through D3 data binding.
-7. At least one visual property must encode a data variable.
-8. The visualization must contain a descriptive title, labels, and interpretable values.
-9. CSS must be used to improve readability.
-10. The completed visualization must be publicly accessible through GitHub Pages.
+The exact appearance does not need to match this example.
 
 ---
 
-# Sample Assignment — Student Score Bar Chart
+## Assignment Requirements
 
-## Step 1 — Dataset
+### 1. Website Structure
 
-Create:
-
-```text
-data/students.csv
-```
-
-```csv
-name,score
-Alice,85
-Bob,72
-Carol,91
-David,66
-Emma,88
-Frank,74
-Grace,95
-Henry,82
-```
-
-## Step 2 — Lab 1 HTML
-
-Create:
+Your website should include:
 
 ```text
-lab1/index.html
+stats401-labs/
+│
+├── index.html
+├── css/
+├── js/
+├── data/
+│   └── students.csv
+├── lab1/
+├── lab2/
+├── lab3/
+├── lab4/
+├── lab5/
+├── lab6/
+├── lab7/
+├── lab8/
+├── lab9/
+└── lab10/
 ```
 
-```html
-<!DOCTYPE html>
+### 2. Lab Navigation
 
-<html lang="en">
+Your main webpage must contain navigation links for **Lab 1 through Lab 10**.
 
-<head>
+Clicking **Lab 1** should open your completed visualization. Labs 2–10 may contain placeholder pages.
 
-    <meta charset="UTF-8">
+### 3. Load External Data
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Lab 1 - My First D3 Visualization</title>
-
-    <link rel="stylesheet"
-          href="../css/style.css">
-
-</head>
-
-<body>
-
-<header>
-
-    <h1>STATS 401</h1>
-
-    <p>Data Acquisition and Visualization</p>
-
-</header>
-
-<nav class="lab-nav">
-
-    <a href="../lab1/index.html">Lab 1</a>
-    <a href="../lab2/index.html">Lab 2</a>
-    <a href="../lab3/index.html">Lab 3</a>
-    <a href="../lab4/index.html">Lab 4</a>
-    <a href="../lab5/index.html">Lab 5</a>
-    <a href="../lab6/index.html">Lab 6</a>
-    <a href="../lab7/index.html">Lab 7</a>
-    <a href="../lab8/index.html">Lab 8</a>
-    <a href="../lab9/index.html">Lab 9</a>
-    <a href="../lab10/index.html">Lab 10</a>
-
-</nav>
-
-<main>
-
-    <h2>Lab 1: My First D3 Visualization</h2>
-
-    <p>
-        This visualization shows the scores of
-        eight students.
-    </p>
-
-    <div id="chart"></div>
-
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-
-<script src="lab1.js"></script>
-
-</body>
-
-</html>
-```
-
-## Step 3 — JavaScript
-
-Create:
-
-```text
-lab1/lab1.js
-```
+Load `students.csv` using D3:
 
 ```javascript
-const width = 700;
-const height = 400;
+d3.csv("../data/students.csv")
+```
 
-const margin = {
-    top: 30,
-    right: 30,
-    bottom: 60,
-    left: 60
-};
+Do not manually copy the dataset into your JavaScript file.
 
+### 4. Convert Scores to Numbers
+
+CSV values are initially strings. Convert `score` to a number:
+
+```javascript
 d3.csv("../data/students.csv", d => ({
     name: d.name,
     score: +d.score
 }))
-.then(data => {
-
-    console.log(data);
-
-    const svg = d3.select("#chart")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    const xScale = d3.scaleBand()
-        .domain(data.map(d => d.name))
-        .range([
-            margin.left,
-            width - margin.right
-        ])
-        .padding(0.2);
-
-    const yScale = d3.scaleLinear()
-        .domain([0, 100])
-        .range([
-            height - margin.bottom,
-            margin.top
-        ]);
-
-    svg.selectAll("rect")
-        .data(data)
-        .join("rect")
-        .attr("x", d => xScale(d.name))
-        .attr("y", d => yScale(d.score))
-        .attr("width", xScale.bandwidth())
-        .attr(
-            "height",
-            d => height - margin.bottom - yScale(d.score)
-        )
-        .attr("fill", "steelblue");
-
-    svg.append("g")
-        .attr(
-            "transform",
-            `translate(0, ${height - margin.bottom})`
-        )
-        .call(d3.axisBottom(xScale));
-
-    svg.append("g")
-        .attr(
-            "transform",
-            `translate(${margin.left}, 0)`
-        )
-        .call(d3.axisLeft(yScale));
-
-    svg.selectAll(".value-label")
-        .data(data)
-        .join("text")
-        .attr("class", "value-label")
-        .attr(
-            "x",
-            d => xScale(d.name) +
-                 xScale.bandwidth() / 2
-        )
-        .attr(
-            "y",
-            d => yScale(d.score) - 8
-        )
-        .attr("text-anchor", "middle")
-        .text(d => d.score);
-
-});
 ```
 
-## Step 4 — CSS
+### 5. Use D3.js
 
-Add to:
-
-```text
-css/style.css
-```
-
-```css
-body {
-    font-family: Arial, sans-serif;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-    color: #222;
-}
-
-header {
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin-bottom: 5px;
-}
-
-header p {
-    color: #666;
-}
-
-.lab-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 25px 0;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.lab-nav a {
-    padding: 8px 14px;
-    background: #f1f1f1;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.lab-nav a:hover {
-    background: #333;
-    color: white;
-}
-
-#chart {
-    margin-top: 30px;
-    overflow-x: auto;
-}
-
-svg {
-    background: #fafafa;
-    border: 1px solid #eee;
-}
-
-.value-label {
-    font-size: 12px;
-    font-weight: bold;
-}
-```
-
----
-
-# Challenge Exercises
-
-If you finish early, try one or more of the following.
-
-## Challenge 1
-
-Change the dataset.
-
-## Challenge 2
-
-Change the bar color based on score.
+Use D3 to create the visualization, including methods such as:
 
 ```javascript
-.attr("fill", d => {
-
-    if (d.score >= 90) {
-        return "green";
-    }
-
-    return "steelblue";
-
-});
+d3.select(...)
+.data(...)
+.join(...)
+.attr(...)
 ```
 
-## Challenge 3
+### 6. Use SVG
 
-Make the bars respond to the mouse.
-
-```javascript
-.on("mouseover", function() {
-
-    d3.select(this)
-        .attr("opacity", 0.6);
-
-})
-.on("mouseout", function() {
-
-    d3.select(this)
-        .attr("opacity", 1);
-
-});
-```
-
-## Challenge 4
-
-Automatically determine the maximum score.
-
-Instead of:
-
-```javascript
-.domain([0, 100])
-```
-
-try:
-
-```javascript
-.domain([
-    0,
-    d3.max(data, d => d.score)
-])
-```
-
----
-
-# Debugging Guide
-
-## Problem 1 — Nothing Appears
-
-Open:
-
-```text
-Developer Tools → Console
-```
-
-Look for errors.
-
-A JavaScript error can prevent the remainder of the visualization from running.
-
-## Problem 2 — `d3 is not defined`
-
-Check that:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-```
-
-appears before:
-
-```html
-<script src="lab1.js"></script>
-```
-
-## Problem 3 — CSV Does Not Load
-
-Run:
-
-```bash
-python -m http.server 8000
-```
-
-and visit:
-
-```text
-http://localhost:8000
-```
-
-Also verify the relative path.
-
-For a structure like:
-
-```text
-data/
-    students.csv
-
-lab1/
-    index.html
-    lab1.js
-```
-
-the correct path from `lab1.js` is:
-
-```javascript
-"../data/students.csv"
-```
-
-## Problem 4 — GitHub Page Shows 404
-
-Check:
-
-```text
-Settings
-→ Pages
-```
-
-and confirm:
-
-```text
-main
-/
-```
-
-is configured as the publishing source.
-
-Also make sure the repository contains:
-
-```text
-index.html
-```
-
-## Problem 5 — Works Locally but Not on GitHub
-
-File names on GitHub Pages are case-sensitive.
+Create the visualization using SVG.
 
 For example:
 
-```text
-students.csv
+```javascript
+const svg = d3.select("#chart")
+    .append("svg");
 ```
 
-is different from:
+### 7. Use D3 Data Binding
 
-```text
-Students.csv
+Create the bars from the dataset using D3 data binding:
+
+```javascript
+svg.selectAll("rect")
+    .data(data)
+    .join("rect");
 ```
 
-Keep filenames lowercase to avoid these problems.
+Do not manually create eight separate rectangles.
+
+### 8. Encode Score with Bar Height
+
+The height of each bar must represent the student's score:
+
+```text
+Higher score → Taller bar
+Lower score  → Shorter bar
+```
+
+### 9. Show Name and Score
+
+Under each bar, clearly display the student's **name** and **score**.
+
+### 10. Add a Title
+
+Include a descriptive title, such as:
+
+```text
+Student Scores
+```
+
+### 11. Use CSS
+
+Use CSS to make the webpage and visualization readable. Consider styling the page layout, navigation, typography, spacing, bars, and labels.
+
+### 12. Publish with GitHub Pages
+
+Your completed Lab 1 must be publicly accessible through GitHub Pages.
+
+Example:
+
+```text
+https://yourusername.github.io/stats401-labs/lab1/
+```
 
 ---
 
 # Submission Requirements
 
-Submit the following through the course LMS.
-
-## 1. GitHub Repository URL
+Submit **one GitHub Pages link** that directly opens your Lab 1 assignment.
 
 Example:
 
 ```text
-https://github.com/username/stats401-labs
+https://yourusername.github.io/stats401-labs/lab1/
 ```
 
-## 2. GitHub Pages URL
-
-Example:
-
-```text
-https://username.github.io/stats401-labs/
-```
-
-## 3. Direct Lab 1 URL
-
-Example:
-
-```text
-https://username.github.io/stats401-labs/lab1/
-```
+Do **not** submit a local URL such as `http://localhost:8000`.
 
 ---
 
 # Submission Checklist
 
-- [ ] My website opens successfully.
+- [ ] My GitHub Pages website opens successfully.
 - [ ] My website contains navigation for all 10 labs.
-- [ ] Lab 1 opens from the navigation menu.
-- [ ] Labs 2–10 have working placeholder pages.
+- [ ] Clicking Lab 1 opens my completed visualization.
+- [ ] Labs 2–10 have placeholder pages.
+- [ ] I use the provided `students.csv` dataset.
+- [ ] My visualization loads the CSV file using D3.
+- [ ] I convert `score` from a string to a number.
 - [ ] My visualization uses D3.js.
 - [ ] My visualization uses SVG.
-- [ ] My data comes from an external CSV or JSON file.
-- [ ] My dataset contains at least 8 observations.
-- [ ] My code converts numeric CSV values to numbers.
-- [ ] I use D3 data binding to create graphical marks.
-- [ ] My visualization has a title.
-- [ ] Categories or observations are labeled.
-- [ ] Data values can be interpreted from the visualization.
-- [ ] My CSS improves the page's readability.
+- [ ] I use D3 data binding to create the bars.
+- [ ] There is one bar for each student.
+- [ ] Bar height represents the student's score.
+- [ ] Each bar shows the student's name and score underneath.
+- [ ] My visualization has a clear title.
+- [ ] CSS makes the webpage and visualization readable.
 - [ ] There are no major JavaScript errors in the browser console.
-- [ ] The visualization works through GitHub Pages.
-- [ ] I submitted both the repository URL and published URL.
-
----
-
-# What You Learned
-
-In this lab you completed the entire basic D3 workflow:
-
-```text
-HTML
-  │
-  ├── defines page structure
-  │
-CSS
-  │
-  ├── controls appearance
-  │
-JavaScript
-  │
-  ├── controls behavior
-  │
-D3.js
-  │
-  ├── binds data to DOM elements
-  ├── loads external data
-  └── creates SVG graphics
-  │
-CSV / JSON
-  │
-  └── provides external data
-  │
-Git + GitHub
-  │
-  └── stores and versions code
-  │
-GitHub Pages
-  │
-  └── publishes the visualization
-```
-
-This infrastructure will be reused throughout the rest of the course.
-
-In later labs, we will keep the same website but progressively add:
-
-```text
-Lab 1   D3 foundations
-Lab 2   Multivariate visualization
-Lab 3   Web data acquisition
-Lab 4   Data cleaning
-Lab 5   Network visualization
-Lab 6   Temporal visualization
-Lab 7   Hierarchical visualization
-Lab 8   Text visualization
-Lab 9   Geographic visualization
-Lab 10  Interaction and coordinated views
-```
+- [ ] The visualization works correctly on GitHub Pages.
+- [ ] I submitted the direct GitHub Pages link to Lab 1.
 
 By the end of the course, the website will serve as a portfolio containing all of your data acquisition and visualization work.
