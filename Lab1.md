@@ -73,7 +73,7 @@ https://yourusername.github.io/stats401-labs/
 
 Before learning D3, we need to understand the three fundamental technologies used by webpages.
 
-For more detailed information about HTML, CSS, and JS, please refer to <a href="[https://chi.acm.org](https://www.w3schools.com/html/default.asp)" target="_blank">w3schools</a>
+For more detailed information about HTML, CSS, and JS, please refer to <a href="https://www.w3schools.com/html/default.asp" target="_blank">w3schools</a>
 
 ## 1.1 HTML
 
