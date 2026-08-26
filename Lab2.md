@@ -652,6 +652,9 @@ d3.csv(
 });
 ```
 
+<img width="1334" height="1156" alt="image" src="https://github.com/user-attachments/assets/021d6024-4cfa-405c-9014-e004bce95f5d" />
+
+
 ---
 
 # Assignment — Design a Four-Dimensional Visualization
