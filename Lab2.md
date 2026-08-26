@@ -812,7 +812,7 @@ Explain:
 3. Convert `population` and `temp_c` to numbers.
 4. Use D3.js to create the visualization.
 5. Represent all four variables:
-6. Allow the viewer to identify each city using labels.
+6. Allow the viewer to identify each city using labels or tooltips.
 7. Add a **Design Justification** under the visualization.
 
 
