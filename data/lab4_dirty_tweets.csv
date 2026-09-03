@@ -1,0 +1,51 @@
+tweet_id,created_at,username,sentiment_raw,platform,tweet_text,likes,retweets,country
+t001,2026-08-01 08:00,Alice,Positive,Web,"Loved the new dashboard! It is fast, clear, and super helpful 😊",0,0,US
+t002,2026/08/02,bob_22,negative,web,The update is terrible... app crashed twice. https://example.com/help,37,11,us
+t003,Aug 3 2026,@Carol,Neutral,WEB,Trying the new feature today. Not sure what I think yet.,74,22,uk
+t004,08/04/2026 12:10, david ,POS,Mobile,Great work @team!!! Version 2.0 feels much smoother #update,111,33,CA
+t005,2026-08-05 12:28,Emma,NEGATIVE,mobile,Why is login still broken??? This is so frustrating 😡,148,44,United States
+t006,2026/08/06,frank,neutral,MOBILE,Downloaded it. Will test later.,185,55,UK
+t007,Aug 7 2026,Grace,positive,iOS,"Amazing service, thank you!!!",222,66,Canada
+t008,08/08/2026 12:10,henry,Negative,IOS,Support never replied to my email. disappointed.,259,7,USA
+t009,2026-08-09 16:56,ivy,Neutral,Android,New interface launched today #design,296,18,U.S.
+t010,2026/08/10,jack,Positive,android,The search works sooo much better now!!! 10/10,333,29,United Kingdom
+t011,Aug 11 2026,Alice,positive,Web,Really enjoying the cleaner layout and quicker loading time! #product,370,40,US
+t012,08/12/2026 12:10,bob_22,NEG,web,"Not happy with the latest change, it takes forever to open.",407,51,us
+t013,2026-08-01 08:24,@Carol,,WEB,Just installed the update and exploring the settings.,24,62,uk
+t014,2026/08/02, david ,POS,Mobile,Customer support was fantastic today. Thanks @support!,61,3,CA
+t015,Aug 3 2026,Emma,negative,mobile,Battery drain is awful after version 3.1 😞,98,14,United States
+t016,08/04/2026 12:10,frank,neutral,MOBILE,The feature is okay; I need more time to use it.,135,25,UK
+t017,2026-08-05 12:52,Grace,Positive,iOS,Wow!!! The recommendations are surprisingly good.,172,36,Canada
+t018,2026/08/06,henry,NEGATIVE,IOS,Cannot upload my file... error 500 again!!!,unknown,47,USA
+t019,Aug 7 2026,ivy,Neutral,Android,Checking out the release notes at https://example.org/release,246,58,U.S.
+t020,08/08/2026 12:10,jack,positive,android,Love how simple this feels now ❤️,283,69,United Kingdom
+t021,2026-08-09 16:20,Alice,NEG,Web,Notifications are way too frequent and annoying.,320,10,US
+t022,not-a-date,bob_22,neutral,web,Nothing major changed for me today.,357,21,us
+t023,Aug 11 2026,@Carol,POS,WEB,The new chart is beautiful and easy to understand.,394,32,uk
+t024,08/12/2026 12:10, david ,Negative,Mobile,Search results look worse than before :(,11,43,CA
+t025,2026-08-01 08:48,Emma,Neutral,mobile,Testing on my phone during lunch #testing,48,54,United States
+t026,2026/08/02,frank,Positive,MOBILE,,85,65,UK
+t027,Aug 3 2026,Grace,negative,iOS,The update is terrible... app crashed twice. https://example.com/help,122,6,Canada
+t028,08/04/2026 12:10,henry,Neutral,IOS,Trying the new feature today. Not sure what I think yet.,159,17,USA
+t029,2026-08-05 12:16,ivy,POS,Android,Great work @team!!! Version 2.0 feels much smoother #update,196,28,U.S.
+t030,2026/08/06,jack,NEGATIVE,android,Why is login still broken??? This is so frustrating 😡,233,39,United Kingdom
+t031,Aug 7 2026,Alice,neutral,Web,Downloaded it. Will test later.,"1,200",50,US
+t032,08/08/2026 12:10,bob_22,positive,web,"Amazing service, thank you!!!",307,61,us
+t033,2026-08-09 16:44,@Carol,Negative,WEB,Support never replied to my email. disappointed.,344,2,uk
+t034,2026/08/10, david ,Neutral,Mobile,New interface launched today #design,381,13,CA
+t035,Aug 11 2026,Emma,Positive,mobile,The search works sooo much better now!!! 10/10,418,24,United States
+t036,08/12/2026 12:10,frank,positive,MOBILE,Really enjoying the cleaner layout and quicker loading time! #product,35,-5,UK
+t037,2026-08-01 08:12,Grace,NEG,iOS,"Not happy with the latest change, it takes forever to open.",72,46,Canada
+t038,2026/08/02,henry,Neutral,IOS,Just installed the update and exploring the settings.,109,57,USA
+t039,Aug 3 2026,ivy,POS,Android,Customer support was fantastic today. Thanks @support!,146,68,U.S.
+t040,08/04/2026 12:10,jack,negative,android,Battery drain is awful after version 3.1 😞,183,9,United Kingdom
+t041,2026-08-05 12:40,Alice,neutral,Web,The feature is okay; I need more time to use it.,220,20,US
+t042,2026/08/06,bob_22,Positive,web,Wow!!! The recommendations are surprisingly good.,257,31,us
+t043,Aug 7 2026,@Carol,NEGATIVE,WEB,Cannot upload my file... error 500 again!!!,294,42,uk
+t044,08/08/2026 12:10, david ,Neutral,Mobile,Checking out the release notes at https://example.org/release,331,53,CA
+t045,2026-08-09 16:08,Emma,positive,mobile,Love how simple this feels now ❤️,368,64,United States
+t046,2026/08/10,frank,NEG,MOBILE,Notifications are way too frequent and annoying.,405,5,UK
+t047,Aug 11 2026,Grace,neutral,iOS,Nothing major changed for me today.,22,16,Canada
+t048,08/12/2026 12:10,henry,POS,IOS,The new chart is beautiful and easy to understand.,59,27,USA
+t004,08/04/2026 12:10, david ,POS,Mobile,Great work @team!!! Version 2.0 feels much smoother #update,111,33,CA
+t008,08/08/2026 12:10,henry,Negative,IOS,Support never replied to my email. disappointed.,259,7,USA
