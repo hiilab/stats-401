@@ -687,7 +687,6 @@ Lab 9: Geospatial Visualization
 
 # Submission Checklist
 
-- [ ] Lab 9 works through GitHub Pages.
 - [ ] I use the provided 2025 GDP dataset.
 - [ ] I join GDP and GeoJSON using geographic identifiers.
 - [ ] I use a D3 geographic projection and `d3.geoPath()`.
@@ -698,6 +697,4 @@ Lab 9: Geospatial Visualization
 - [ ] Countries without provided GDP values are shown as missing data, not zero.
 - [ ] I include a 150–250 word design comparison.
 - [ ] I explain what tasks each map best supports.
-- [ ] I submitted the direct GitHub Pages link.
-
 ---
